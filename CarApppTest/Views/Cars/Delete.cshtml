@@ -1,0 +1,42 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Delete Car</h3>
+<hr />
+<div asp-validation-summary="All"></div>
+<form method="post">
+    <fieldset>
+        <legend>Delete Car </legend>
+        <div class="form-group">
+            <label asp-for="Name" class="form-label mt-4"></label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-bg-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="year" class="form-label mt-4"></label>
+            <input type="text" asp-for="year" class="form-control">
+            <span asp-validation-for="year" class="text-bg-danger"></span>
+        </div>
+        <hr />
+        <div>
+            <label asp-for="CategoryId"></label>
+            <hr />
+            <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.CategoryList">
+            </select>
+        </div>
+        <hr />
+        <div class="align-content-center">
+            <button type="submit" class="btn btn-danger" style="width:150px"> Delete </button>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a asp-action="Index" asp-controller="Cars" class="btn btn-secondary" style="width:150px">
+                Back
+            </a>
+        </div>
+    </fieldset>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}
